@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+  reviewFeatures = ["mongodb"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model blog {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  createAt DateTime @default(now())
+  udateAt  DateTime @updatedAt
+  title    String
+  category String 
+  content  String
+  author   String
+  image    String
+  snippet  String
+}
+
+
+
+
+
+
+
